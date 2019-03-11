@@ -1,0 +1,3 @@
+# <a name="completed-module-create-a-nodejs-express-web-app"></a>完了モジュール: node.js Express web アプリを作成する
+
+このディレクトリにあるプロジェクトのバージョンは、 [「node.js Express web app を作成する](https://docs.microsoft.com/graph/training/node-tutorial?tutorial-step=1)」に記載されているチュートリアルを完了します。 このバージョンのプロジェクトを使用する場合は、「[ポータルでアプリを登録する」](https://docs.microsoft.com/graph/training/node-tutorial?tutorial-step=2)を開始して、チュートリアルの残りの部分を完了する必要があります。
