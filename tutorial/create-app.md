@@ -1,66 +1,66 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="35cb1-101">この手順では、 [Express](http://expressjs.com/)を使用して web アプリを構築します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-101">In this exercise you will use [Express](http://expressjs.com/) to build a web app.</span></span> <span data-ttu-id="35cb1-102">Express ジェネレーターがまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-102">If you don't already have the Express generator installed, you can install it from your command-line interface (CLI) with the following command.</span></span>
+<span data-ttu-id="7cc62-101">この手順では、 [Express](http://expressjs.com/)を使用して web アプリを構築します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-101">In this exercise you will use [Express](http://expressjs.com/) to build a web app.</span></span> <span data-ttu-id="7cc62-102">Express ジェネレーターがまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-102">If you don't already have the Express generator installed, you can install it from your command-line interface (CLI) with the following command.</span></span>
 
 ```Shell
 npm install express-generator -g
 ```
 
-<span data-ttu-id="35cb1-103">CLI を開き、ファイルを作成する権限があるディレクトリに移動し、次のコマンドを実行して、 [Handlebars](http://handlebarsjs.com/)をレンダリングエンジンとして使用する新しいエクスプレスアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-103">Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Express app that uses [Handlebars](http://handlebarsjs.com/) as the rendering engine.</span></span>
+<span data-ttu-id="7cc62-103">CLI を開き、ファイルを作成する権限があるディレクトリに移動し、次のコマンドを実行して、 [Handlebars](http://handlebarsjs.com/)をレンダリングエンジンとして使用する新しいエクスプレスアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-103">Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Express app that uses [Handlebars](http://handlebarsjs.com/) as the rendering engine.</span></span>
 
 ```Shell
 express --hbs graph-tutorial
 ```
 
-<span data-ttu-id="35cb1-104">エクスプレスジェネレーターは、という名前の`graph-tutorial`新しいディレクトリを作成し、スキャフォールディングというエクスプレスアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-104">The Express generator creates a new directory called `graph-tutorial` and scaffolds an Express app.</span></span> <span data-ttu-id="35cb1-105">この新しいディレクトリに移動し、次のコマンドを入力して依存関係をインストールします。</span><span class="sxs-lookup"><span data-stu-id="35cb1-105">Navigate to this new directory and enter the following command to install dependencies.</span></span>
+<span data-ttu-id="7cc62-104">エクスプレスジェネレーターは、という名前の`graph-tutorial`新しいディレクトリを作成し、スキャフォールディングというエクスプレスアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-104">The Express generator creates a new directory called `graph-tutorial` and scaffolds an Express app.</span></span> <span data-ttu-id="7cc62-105">この新しいディレクトリに移動し、次のコマンドを入力して依存関係をインストールします。</span><span class="sxs-lookup"><span data-stu-id="7cc62-105">Navigate to this new directory and enter the following command to install dependencies.</span></span>
 
 ```Shell
 npm install
 ```
 
-<span data-ttu-id="35cb1-106">コマンドが完了したら、次のコマンドを使用してローカル web サーバーを開始します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-106">Once that command completes, use the following command to start a local web server.</span></span>
+<span data-ttu-id="7cc62-106">コマンドが完了したら、次のコマンドを使用してローカル web サーバーを開始します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-106">Once that command completes, use the following command to start a local web server.</span></span>
 
 ```Shell
 npm start
 ```
 
-<span data-ttu-id="35cb1-107">ブラウザーを開き、`http://localhost:3000` に移動します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-107">Open your browser and navigate to `http://localhost:3000`.</span></span> <span data-ttu-id="35cb1-108">すべてが動作している場合は、"Welcome to Express" メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-108">If everything is working, you will see a "Welcome to Express" message.</span></span> <span data-ttu-id="35cb1-109">このメッセージが表示されない場合は、『 [Express 入門ガイド』](http://expressjs.com/starter/generator.html)を確認してください。</span><span class="sxs-lookup"><span data-stu-id="35cb1-109">If you don't see that message, check the [Express getting started guide](http://expressjs.com/starter/generator.html).</span></span>
+<span data-ttu-id="7cc62-107">ブラウザーを開き、`http://localhost:3000` に移動します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-107">Open your browser and navigate to `http://localhost:3000`.</span></span> <span data-ttu-id="7cc62-108">すべてが動作している場合は、"Welcome to Express" メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-108">If everything is working, you will see a "Welcome to Express" message.</span></span> <span data-ttu-id="7cc62-109">このメッセージが表示されない場合は、『 [Express 入門ガイド』](http://expressjs.com/starter/generator.html)を確認してください。</span><span class="sxs-lookup"><span data-stu-id="7cc62-109">If you don't see that message, check the [Express getting started guide](http://expressjs.com/starter/generator.html).</span></span>
 
-<span data-ttu-id="35cb1-110">に進む前に、後で使用する gem をいくつかインストールします。</span><span class="sxs-lookup"><span data-stu-id="35cb1-110">Before moving on, install some additional gems that you will use later:</span></span>
+<span data-ttu-id="7cc62-110">に進む前に、後で使用する gem をいくつかインストールします。</span><span class="sxs-lookup"><span data-stu-id="7cc62-110">Before moving on, install some additional gems that you will use later:</span></span>
 
-- <span data-ttu-id="35cb1-111">[dotenv](https://github.com/motdotla/dotenv)ファイルから値を読み込むためのものです。</span><span class="sxs-lookup"><span data-stu-id="35cb1-111">[dotenv](https://github.com/motdotla/dotenv) for loading values from a .env file.</span></span>
-- <span data-ttu-id="35cb1-112">日付/時刻の値を書式設定する[モーメント](https://github.com/moment/moment/)</span><span class="sxs-lookup"><span data-stu-id="35cb1-112">[moment](https://github.com/moment/moment/) for formatting date/time values.</span></span>
-- <span data-ttu-id="35cb1-113">[接続-](https://github.com/jaredhanson/connect-flash)アプリでフラッシュエラーメッセージにフラッシュします。</span><span class="sxs-lookup"><span data-stu-id="35cb1-113">[connect-flash](https://github.com/jaredhanson/connect-flash) to flash error messages in the app.</span></span>
-- <span data-ttu-id="35cb1-114">メモリ内のサーバー側セッションに値を格納するための[エクスプレスセッション](https://github.com/expressjs/session)。</span><span class="sxs-lookup"><span data-stu-id="35cb1-114">[express-session](https://github.com/expressjs/session) to store values in an in-memory server-side session.</span></span>
-- <span data-ttu-id="35cb1-115">[パスポート-ad](https://github.com/AzureAD/passport-azure-ad)は、アクセストークンを認証および取得するために使用します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-115">[passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) for authenticating and getting access tokens.</span></span>
-- <span data-ttu-id="35cb1-116">トークン管理のための[oauth2](https://github.com/lelylan/simple-oauth2) 。</span><span class="sxs-lookup"><span data-stu-id="35cb1-116">[simple-oauth2](https://github.com/lelylan/simple-oauth2) for token management.</span></span>
-- <span data-ttu-id="35cb1-117">[microsoft graph-](https://github.com/microsoftgraph/msgraph-sdk-javascript) microsoft graph に電話をかけるためのクライアントです。</span><span class="sxs-lookup"><span data-stu-id="35cb1-117">[microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) for making calls to Microsoft Graph.</span></span>
+- <span data-ttu-id="7cc62-111">[dotenv](https://github.com/motdotla/dotenv)ファイルから値を読み込むためのものです。</span><span class="sxs-lookup"><span data-stu-id="7cc62-111">[dotenv](https://github.com/motdotla/dotenv) for loading values from a .env file.</span></span>
+- <span data-ttu-id="7cc62-112">日付/時刻の値を書式設定する[モーメント](https://github.com/moment/moment/)</span><span class="sxs-lookup"><span data-stu-id="7cc62-112">[moment](https://github.com/moment/moment/) for formatting date/time values.</span></span>
+- <span data-ttu-id="7cc62-113">[接続-](https://github.com/jaredhanson/connect-flash)アプリでフラッシュエラーメッセージにフラッシュします。</span><span class="sxs-lookup"><span data-stu-id="7cc62-113">[connect-flash](https://github.com/jaredhanson/connect-flash) to flash error messages in the app.</span></span>
+- <span data-ttu-id="7cc62-114">メモリ内のサーバー側セッションに値を格納するための[エクスプレスセッション](https://github.com/expressjs/session)。</span><span class="sxs-lookup"><span data-stu-id="7cc62-114">[express-session](https://github.com/expressjs/session) to store values in an in-memory server-side session.</span></span>
+- <span data-ttu-id="7cc62-115">[パスポート-ad](https://github.com/AzureAD/passport-azure-ad)は、アクセストークンを認証および取得するために使用します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-115">[passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) for authenticating and getting access tokens.</span></span>
+- <span data-ttu-id="7cc62-116">トークン管理のための[oauth2](https://github.com/lelylan/simple-oauth2) 。</span><span class="sxs-lookup"><span data-stu-id="7cc62-116">[simple-oauth2](https://github.com/lelylan/simple-oauth2) for token management.</span></span>
+- <span data-ttu-id="7cc62-117">[microsoft graph-](https://github.com/microsoftgraph/msgraph-sdk-javascript) microsoft graph に電話をかけるためのクライアントです。</span><span class="sxs-lookup"><span data-stu-id="7cc62-117">[microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) for making calls to Microsoft Graph.</span></span>
 
-<span data-ttu-id="35cb1-118">CLI で次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-118">Run the following command in your CLI.</span></span>
+<span data-ttu-id="7cc62-118">CLI で次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-118">Run the following command in your CLI.</span></span>
 
 ```Shell
 npm install dotenv@6.2.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.15.6
 npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.5.2
 ```
 
->__<span data-ttu-id="35cb1-119">WINDOWS ユーザー</span><span class="sxs-lookup"><span data-stu-id="35cb1-119">WINDOWS USERS</span></span>__
+><span data-ttu-id="7cc62-119">__WINDOWS ユーザー__</span><span class="sxs-lookup"><span data-stu-id="7cc62-119">__WINDOWS USERS__</span></span>
 >
-><span data-ttu-id="35cb1-120">これらのパッケージをインストールしようとすると、次のエラーメッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-120">If you get the following error message when trying to install these packages:</span></span>
+><span data-ttu-id="7cc62-120">これらのパッケージをインストールしようとすると、次のエラーメッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-120">If you get the following error message when trying to install these packages:</span></span>
 >
 > `gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.`
 >
-><span data-ttu-id="35cb1-121">次のコマンドを実行して、管理者特権 (管理者) のターミナルウィンドウを使用して Windows ビルドツールをインストールします。これにより、VS ビルドツールおよび Python もインストールされます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-121">Run the following command to install the Windows Build Tools using an elevated (Administrator) terminal window which installs the VS Build Tools and also Python</span></span>
+><span data-ttu-id="7cc62-121">次のコマンドを実行して、管理者特権 (管理者) のターミナルウィンドウを使用して Windows ビルドツールをインストールします。これにより、VS ビルドツールおよび Python もインストールされます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-121">Run the following command to install the Windows Build Tools using an elevated (Administrator) terminal window which installs the VS Build Tools and also Python</span></span>
 >
 > `npm install --global --production windows-build-tools`
 
-<span data-ttu-id="35cb1-122">アプリケーションを更新して、 `connect-flash` `express-session`ミドルウェアを使用できるようにします。</span><span class="sxs-lookup"><span data-stu-id="35cb1-122">Now update the application to use the `connect-flash` and `express-session` middleware.</span></span> <span data-ttu-id="35cb1-123">`./app.js`ファイルを開き、次`require`のステートメントをファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-123">Open the `./app.js` file and add the following `require` statement to the top of the file.</span></span>
+<span data-ttu-id="7cc62-122">アプリケーションを更新して、 `connect-flash` `express-session`ミドルウェアを使用できるようにします。</span><span class="sxs-lookup"><span data-stu-id="7cc62-122">Now update the application to use the `connect-flash` and `express-session` middleware.</span></span> <span data-ttu-id="7cc62-123">`./app.js`ファイルを開き、次`require`のステートメントをファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-123">Open the `./app.js` file and add the following `require` statement to the top of the file.</span></span>
 
 ```js
 var session = require('express-session');
 var flash = require('connect-flash');
 ```
 
-<span data-ttu-id="35cb1-124">行の`var app = express();`直後に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-124">Add the following code immediately after the `var app = express();` line.</span></span>
+<span data-ttu-id="7cc62-124">行の`var app = express();`直後に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-124">Add the following code immediately after the `var app = express();` line.</span></span>
 
 ```js
 // Session middleware
@@ -93,9 +93,9 @@ app.use(function(req, res, next) {
 });
 ```
 
-## <a name="design-the-app"></a><span data-ttu-id="35cb1-125">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="35cb1-125">Design the app</span></span>
+## <a name="design-the-app"></a><span data-ttu-id="7cc62-125">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="7cc62-125">Design the app</span></span>
 
-<span data-ttu-id="35cb1-126">最初に、アプリのグローバルレイアウトを作成します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-126">Start by creating the global layout for the app.</span></span> <span data-ttu-id="35cb1-127">`./views/layout.hbs`ファイルを開き、内容全体を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-127">Open the `./views/layout.hbs` file and replace the entire contents with the following code.</span></span>
+<span data-ttu-id="7cc62-126">最初に、アプリのグローバルレイアウトを作成します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-126">Start by creating the global layout for the app.</span></span> <span data-ttu-id="7cc62-127">`./views/layout.hbs`ファイルを開き、内容全体を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-127">Open the `./views/layout.hbs` file and replace the entire contents with the following code.</span></span>
 
 ```html
 <!DOCTYPE html>
@@ -182,9 +182,9 @@ app.use(function(req, res, next) {
 </html>
 ```
 
-<span data-ttu-id="35cb1-128">このコードでは、単純なスタイル設定[](https://fontawesome.com/)のために[ブートストラップ](http://getbootstrap.com/)が追加されています。</span><span class="sxs-lookup"><span data-stu-id="35cb1-128">This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Font Awesome](https://fontawesome.com/) for some simple icons.</span></span> <span data-ttu-id="35cb1-129">また、ナビゲーションバーのあるグローバルレイアウトを定義します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-129">It also defines a global layout with a nav bar.</span></span>
+<span data-ttu-id="7cc62-128">このコードでは、単純なスタイル設定[](https://fontawesome.com/)のために[ブートストラップ](http://getbootstrap.com/)が追加されています。</span><span class="sxs-lookup"><span data-stu-id="7cc62-128">This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Font Awesome](https://fontawesome.com/) for some simple icons.</span></span> <span data-ttu-id="7cc62-129">また、ナビゲーションバーのあるグローバルレイアウトを定義します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-129">It also defines a global layout with a nav bar.</span></span>
 
-<span data-ttu-id="35cb1-130">を開き`./public/stylesheets/style.css` 、コンテンツ全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-130">Now open `./public/stylesheets/style.css` and replace its entire contents with the following.</span></span>
+<span data-ttu-id="7cc62-130">を開き`./public/stylesheets/style.css` 、コンテンツ全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-130">Now open `./public/stylesheets/style.css` and replace its entire contents with the following.</span></span>
 
 ```css
 body {
@@ -198,7 +198,7 @@ body {
 }
 ```
 
-<span data-ttu-id="35cb1-131">ここで、既定のページを更新します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-131">Now update the default page.</span></span> <span data-ttu-id="35cb1-132">`./views/index.hbs`ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-132">Open the `./views/index.hbs` file and replace its contents with the following.</span></span>
+<span data-ttu-id="7cc62-131">ここで、既定のページを更新します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-131">Now update the default page.</span></span> <span data-ttu-id="7cc62-132">`./views/index.hbs`ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-132">Open the `./views/index.hbs` file and replace its contents with the following.</span></span>
 
 ```html
 <div class="jumbotron">
@@ -213,7 +213,7 @@ body {
 </div>
 ```
 
-<span data-ttu-id="35cb1-133">`./routes/index.js`ファイルを開き、既存のコードを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35cb1-133">Open the `./routes/index.js` file and replace the existing code with the following.</span></span>
+<span data-ttu-id="7cc62-133">`./routes/index.js`ファイルを開き、既存のコードを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="7cc62-133">Open the `./routes/index.js` file and replace the existing code with the following.</span></span>
 
 ```js
 var express = require('express');
@@ -231,6 +231,6 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-<span data-ttu-id="35cb1-134">すべての変更を保存し、サーバーを再起動します。</span><span class="sxs-lookup"><span data-stu-id="35cb1-134">Save all of your changes and restart the server.</span></span> <span data-ttu-id="35cb1-135">この時点で、アプリの外観は大きく異なります。</span><span class="sxs-lookup"><span data-stu-id="35cb1-135">Now, the app should look very different.</span></span>
+<span data-ttu-id="7cc62-134">すべての変更を保存し、サーバーを再起動します。</span><span class="sxs-lookup"><span data-stu-id="7cc62-134">Save all of your changes and restart the server.</span></span> <span data-ttu-id="7cc62-135">この時点で、アプリの外観は大きく異なります。</span><span class="sxs-lookup"><span data-stu-id="7cc62-135">Now, the app should look very different.</span></span>
 
 ![再設計されたホームページのスクリーンショット](./images/create-app-01.png)
