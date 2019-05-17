@@ -43,15 +43,18 @@ npm install dotenv@6.2.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.15.
 npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.5.2
 ```
 
->__WINDOWS ユーザー__
+> [!TIP]
+> Windows にこれらのパッケージをインストールしようとすると、Windows ユーザーに次のエラーメッセージが表示されることがあります。
 >
->これらのパッケージをインストールしようとすると、次のエラーメッセージが表示されます。
+> ```Shell
+> gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+> ```
 >
-> `gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.`
+> このエラーを解決するには、次のコマンドを実行して、VS ビルドツールおよび Python をインストールする管理者 (管理者) ターミナルウィンドウを使用して Windows ビルドツールをインストールします。
 >
->次のコマンドを実行して、管理者特権 (管理者) のターミナルウィンドウを使用して Windows ビルドツールをインストールします。これにより、VS ビルドツールおよび Python もインストールされます。
->
-> `npm install --global --production windows-build-tools`
+> ```Shell
+> npm install --global --production windows-build-tools
+> ```
 
 アプリケーションを更新して、 `connect-flash` `express-session`ミドルウェアを使用できるようにします。 `./app.js`ファイルを開き、次`require`のステートメントをファイルの先頭に追加します。
 
