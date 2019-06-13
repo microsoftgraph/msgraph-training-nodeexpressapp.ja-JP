@@ -22,6 +22,25 @@
 
 - [完了したプロジェクト](Demos/03-add-msgraph)
 
+## <a name="contributors"></a>多様
+
+|           ロール            |                                           作成者 (s)                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| コード/チュートリアル/サポート | Jason ジョンストン (Microsoft) [@jasonjoh](//github.com/jasonjoh)                                 |
+| Slides                     | Jeremy Thake (Microsoft) [@jthake-msft](//github.com/jthake-msft)                             |
+| QA                         | Andrew Connell (Microsoft MVP、Voitanos) [@andrewconnell](//github.com/andrewconnell)         |
+| QA                         | ジュリー Turner (Microsoft MVP、Sympraxis コンサルティング) [@juliemturner](//github.com/juliemturner) |
+
+## <a name="version-history"></a>バージョン履歴
+
+| バージョン |       日付       |              コメント              |
+| ------- | ---------------- | ---------------------------------- |
+| 1.4     | 2019年5月24日     | 2019Q4 コンテンツの更新             |
+| 1.3     | 2019年5月17日     | AAD アプリの登録手順を更新しました |
+| 1.2     | 2019年3月10日   | 2019Q3 コンテンツの更新             |
+| 1.1     | 2019年2月8日 | 追加されたスライド                       |
+| 1.0     | 2018             | Published                          |
+
 ## <a name="disclaimer"></a>免責事項
 
 **このコードは、 ** 特定の目的、市販性、または非侵害に対する暗黙の保証を含め、明示的または黙示的ないかなる種類の保証なしに提供されます。**

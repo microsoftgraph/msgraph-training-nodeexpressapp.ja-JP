@@ -39,12 +39,12 @@ npm start
 CLI で次のコマンドを実行します。
 
 ```Shell
-npm install dotenv@6.2.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.15.6
-npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.5.2
+npm install dotenv@8.0.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.16.1
+npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.6.0
 ```
 
 > [!TIP]
-> Windows にこれらのパッケージをインストールしようとすると、Windows ユーザーに次のエラーメッセージが表示されることがあります。
+> Windows にこれらのパッケージをインストールしようとすると、windows ユーザーに次のエラーメッセージが表示されることがあります。
 >
 > ```Shell
 > gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
