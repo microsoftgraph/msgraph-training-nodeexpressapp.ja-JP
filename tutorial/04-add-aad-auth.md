@@ -201,7 +201,7 @@ function getAuthenticatedClient(accessToken) {
 
 これにより`getUserDetails` 、関数がエクスポートされます。これは、 `/me` Microsoft Graph SDK を使用してエンドポイントを呼び出し、結果を返します。
 
-この関数`signInComplete`を呼び出す`/app.s`には、のメソッドを更新します。 最初に、次`require`のステートメントをファイルの先頭に追加します。
+この関数`signInComplete`を呼び出す`/app.js`には、のメソッドを更新します。 最初に、次`require`のステートメントをファイルの先頭に追加します。
 
 ```js
 var graph = require('./graph');
