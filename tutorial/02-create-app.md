@@ -35,12 +35,13 @@ npm start
 - [パスポート-ad](https://github.com/AzureAD/passport-azure-ad)は、アクセストークンを認証および取得するために使用します。
 - トークン管理のための[oauth2](https://github.com/lelylan/simple-oauth2) 。
 - [microsoft graph-](https://github.com/microsoftgraph/msgraph-sdk-javascript) microsoft graph に電話をかけるためのクライアントです。
+- [isomorphic](https://github.com/matthew-andrews/isomorphic-fetch) 。ノードのフェッチを polyfill にフェッチします。 `microsoft-graph-client`ライブラリには fetch polyfill が必要です。 詳細については、「 [Microsoft Graph JavaScript クライアントライブラリ wiki](https://github.com/microsoftgraph/msgraph-sdk-javascript/wiki/Migration-from-1.x.x-to-2.x.x#polyfill-only-when-required) 」を参照してください。
 
 CLI で次のコマンドを実行します。
 
 ```Shell
-npm install dotenv@8.1.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.16.2
-npm install passport-azure-ad@4.1.0 simple-oauth2@2.4.0 @microsoft/microsoft-graph-client@1.7.0
+npm install dotenv@8.2.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.17.0 isomorphic-fetch@2.2.1
+npm install passport-azure-ad@4.2.0 simple-oauth2@3.1.0 @microsoft/microsoft-graph-client@2.0.0
 ```
 
 > [!TIP]

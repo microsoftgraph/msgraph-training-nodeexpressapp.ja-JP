@@ -108,12 +108,10 @@ router.get('/signin',
         response: res,
         prompt: 'login',
         failureRedirect: '/',
-        failureFlash: true
+        failureFlash: true,
+        successRedirect: '/'
       }
     )(req,res,next);
-  },
-  function(req, res) {
-    res.redirect('/');
   }
 );
 
@@ -175,6 +173,7 @@ app.use('/auth', authRouter);
 
 ```js
 var graph = require('@microsoft/microsoft-graph-client');
+require('isomorphic-fetch');
 
 module.exports = {
   getUserDetails: async function(accessToken) {
@@ -300,7 +299,7 @@ async function signInComplete(iss, sub, profile, accessToken, refreshToken, para
 }
 ```
 
-の`callback` `./routes/auth.js`ルートを更新して、 `req.flash`アクセストークンを含む行を削除します。 ルート`callback`は次のようになります。
+の`callback`ルート`./routes/auth.js`を更新して、 `req.flash`手動によるリダイレクトを削除し`successRedirect` 、パラメーター `passport.authenticate`をに指定します。 ルート`callback`は次のようになります。
 
 ```js
 router.post('/callback',
@@ -309,12 +308,10 @@ router.post('/callback',
       {
         response: res,
         failureRedirect: '/',
-        failureFlash: true
+        failureFlash: true,
+        successRedirect: '/'
       }
     )(req,res,next);
-  },
-  function(req, res) {
-    res.redirect('/');
   }
 );
 ```
