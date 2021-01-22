@@ -1,17 +1,17 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。 これは、Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。 この手順では、アプリケーションに [msal ノード](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) ライブラリを統合します。
+この演習では、前の演習のアプリケーションを拡張して、Azure AD での認証をサポートします。 これは、Microsoft Graph を呼び出すのに必要な OAuth アクセス トークンを取得するために必要です。 この手順では [、msal-node ライブラリを](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) アプリケーションに統合します。
 
-1. アプリケーションのルートに「 **env** 」という名前の新しいファイルを作成し、次のコードを追加します。
+1. アプリケーションのルートに **.env** という名前の新しいファイルを作成し、次のコードを追加します。
 
     :::code language="ini" source="../demo/graph-tutorial/example.env":::
 
-    を `YOUR_CLIENT_SECRET_HERE` アプリケーション登録ポータルからのアプリケーション ID に置き換え、生成し `YOUR_APP_SECRET_HERE` たクライアントシークレットに置き換えます。
+    アプリケーション `YOUR_CLIENT_SECRET_HERE` 登録ポータルのアプリケーション ID に置き換え、生成したクライアント シークレット `YOUR_APP_SECRET_HERE` に置き換える。
 
     > [!IMPORTANT]
-    > Git などのソース管理を使用している場合は、後でアプリ ID とパスワードを誤ってリークしないように、ソース管理からその env ファイルを除外することをお勧めし **ます** 。
+    > git などのソース管理を使用している場合は **、.env** ファイルをソース管理から除外して、アプリ ID とパスワードが誤って漏洩しないようにする良い時期です。
 
-1. **/app.js** を開き、ファイルの先頭に次の行を追加して、 **env** ファイルを読み込みます。
+1. **./app.js** 開き、ファイルの一番上に次の行を追加して **.env ファイルを読み込** む。
 
     ```javascript
     require('dotenv').config();
@@ -19,13 +19,13 @@
 
 ## <a name="implement-sign-in"></a>サインインの実装
 
-1. `var indexRouter = require('./routes/index');` **/app.js** の行を検索します。 その行の **前に** 次のコードを挿入します。
+1. `var app = express();` **./app.js** で行を見app.js。 その行の後に次 **のコードを** 挿入します。
 
     :::code language="javascript" source="../demo/graph-tutorial/app.js" id="MsalInitSnippet":::
 
-    このコードでは、アプリのアプリ ID とパスワードを使用して、msal ノードライブラリを初期化します。
+    このコードは、アプリのアプリ ID とパスワードを使用して msal-node ライブラリを初期化します。
 
-1. **auth.js** という名前の **ルート** ディレクトリに新しいファイルを作成し、次のコードを追加します。
+1. **./routes** ディレクトリに新しいファイルを作成し、auth.js **コードを** 追加します。
 
     ```javascript
     var router = require('express-promise-router')();
@@ -112,31 +112,31 @@
     module.exports = router;
     ```
 
-    これは `signin` 、、、およびの3つのルートでルーターを定義します。 `callback` `signout`
+    これにより、次の 3 つのルートを持つ `signin` ルーター `callback` が定義されます。 `signout`
 
-    この `signin` ルートは、関数を呼び出してログイン url を生成し、 `getAuthCodeUrl` その url にブラウザーをリダイレクトします。
+    ルート `signin` は関数を呼び出してログイン URL を生成し、ブラウザーをその `getAuthCodeUrl` URL にリダイレクトします。
 
-    この `callback` ルートは、サインインの完了後に Azure がリダイレクトされる場所です。 このコードでは、 `acquireTokenByCode` アクセストークンの認証コードを交換するための関数を呼び出します。 トークンが取得されると、一時的なエラー値でアクセストークンを使用して、ホームページにリダイレクトされます。 これを使用して、サインインが機能していることを確認してから、に進みます。 テストを開始する前に、 **/routes/auth.js** から新しいルーターを使用するようにエクスプレスアプリを構成する必要があります。
+    ルート `callback` は、サインインの完了後に Azure がリダイレクトする場所です。 コードは、アクセス `acquireTokenByCode` トークンの認証コードを交換する関数を呼び出します。 トークンを取得すると、一時的なエラー値でアクセス トークンを使用してホーム ページにリダイレクトされます。 これを使用して、次に進む前にサインインが機能しているのを確認します。 テストする前に、./routes/auth.jsから新しいルーターを使用する Express アプリ **を構成する必要auth.js。**
 
-    メソッドは、 `signout` ユーザーをログに記録し、セッションを破棄します。
+    この `signout` メソッドは、ユーザーをログアウトし、セッションを破棄します。
 
-1. /app.jsを開き、行の **前に** 次のコードを挿入し **ます。** `var app = express();`
+1. **./app.jsを開** き、行の前に次 **のコードを** 挿入 `var app = express();` します。
 
     ```javascript
     var authRouter = require('./routes/auth');
     ```
 
-1. 行の **後** に次のコードを挿入し `app.use('/', indexRouter);` ます。
+1. 行の後に次 **のコードを** `app.use('/', indexRouter);` 挿入します。
 
     ```javascript
     app.use('/auth', authRouter);
     ```
 
-サーバーを起動し、を参照し `https://localhost:3000` ます。 [サインイン] ボタンをクリックすると、`https://login.microsoftonline.com` にリダイレクトされます。 Microsoft アカウントを使用してログインし、要求されたアクセス許可に同意します。 ブラウザーがアプリにリダイレクトし、トークンが表示されます。
+サーバーを起動し、参照します `https://localhost:3000` 。 [サインイン] ボタンをクリックすると、`https://login.microsoftonline.com` にリダイレクトされます。 Microsoft アカウントでログインし、要求されたアクセス許可に同意します。 ブラウザーがアプリにリダイレクトし、トークンが表示されます。
 
 ### <a name="get-user-details"></a>ユーザーの詳細情報を取得する
 
-1. **graph.js** という名前のプロジェクトのルートに新しいファイルを作成し、次のコードを追加します。
+1. プロジェクトのルートに新しいファイルを作成し、graph.js **コードを** 追加します。
 
     ```javascript
     var graph = require('@microsoft/microsoft-graph-client');
@@ -168,32 +168,32 @@
     }
     ```
 
-    これにより、関数がエクスポートされます。これは、 `getUserDetails` Microsoft GRAPH SDK を使用してエンドポイントを呼び出し、 `/me` 結果を返します。
+    これにより、Microsoft Graph SDK を使用してエンドポイントを呼び出し、結果を返す関数 `getUserDetails` `/me` がエクスポートされます。
 
-1. **/Routes/auth.js** を開き、次の `require` ステートメントをファイルの先頭に追加します。
+1. **./routes/auth.js** 開き、ファイルの一番上に次の `require` ステートメントを追加します。
 
     ```javascript
     var graph = require('../graph');
     ```
 
-1. 既存のコールバックルートを次のコードに置き換えます。
+1. 既存のコールバック ルートを次のコードに置き換えます。
 
     :::code language="javascript" source="../demo/graph-tutorial/routes/auth.js" id="CallbackSnippet" highlight="13-23":::
 
-    新しいコードによって、ユーザーのアカウント ID がセッションに保存され、Microsoft Graph からユーザーの詳細が取得され、アプリのユーザーストレージに保存されます。
+    新しいコードは、ユーザーのアカウント ID をセッションに保存し、Microsoft Graph からユーザーの詳細を取得して、アプリのユーザー ストレージに保存します。
 
-1. サーバーを再起動し、サインインプロセスを実行します。 ホームページに戻る必要がありますが、UI は、サインインしていることを示すように変更する必要があります。
+1. サーバーを再起動し、サインイン プロセスを実行します。 ホーム ページに戻る必要がありますが、サインイン中を示すために UI が変更される必要があります。
 
     ![サインイン後のホーム ページのスクリーンショット](./images/add-aad-auth-01.png)
 
-1. 右上隅にあるユーザーアバターをクリックして、[ **サインアウト** ] リンクにアクセスします。 **[サインアウト]** をクリックすると、セッションがリセットされ、ホーム ページに戻ります。
+1. 右上隅にあるユーザー アバターをクリックして、[サインアウト **] リンクにアクセス** します。 **[サインアウト]** をクリックすると、セッションがリセットされ、ホーム ページに戻ります。
 
     ![[サインアウト] リンクのドロップダウン メニューのスクリーンショット](./images/add-aad-auth-02.png)
 
-## <a name="storing-and-refreshing-tokens"></a>トークンの格納と更新
+## <a name="storing-and-refreshing-tokens"></a>トークンの保存と更新
 
-この時点で、アプリケーションには、API 呼び出しのヘッダーで送信されるアクセストークンがあり `Authorization` ます。 これは、アプリがユーザーに代わって Microsoft Graph にアクセスできるようにするトークンです。
+この時点で、アプリケーションはアクセス トークンを持ち、API 呼び出しのヘッダー `Authorization` で送信されます。 これは、アプリがユーザーの代わりに Microsoft Graph にアクセスできるトークンです。
 
-ただし、このトークンは一時的なものです。 トークンが発行された後、有効期限が切れる時間になります。 ここで、更新トークンが役に立ちます。 OAuth 仕様では、更新トークンが導入されています。これにより、ユーザーが再度サインインする必要なく、新しいアクセストークンを要求することができます。
+ただし、このトークンは一時的なものです。 トークンは発行後 1 時間で期限切れになります。 ここで、更新トークンが役に立ちます。 OAuth の仕様には更新トークンが導入されています。これにより、アプリはユーザーが再びサインインする必要なしに新しいアクセス トークンを要求できます。
 
-アプリでは msal ノードパッケージが使用されているため、トークンストレージや更新ロジックを実装する必要はありません。 アプリは、サンプルアプリケーションに十分な既定の msal ノードのメモリ内トークンキャッシュを使用します。 運用アプリケーションは、トークンキャッシュをセキュリティで保護された信頼性の高いストレージメディアにシリアル化するための独自の [キャッシュプラグイン](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md) を提供する必要があります。
+アプリは msal-node パッケージを使うので、トークンストレージや更新ロジックを実装する必要は一切必要ではありません。 アプリは、サンプル アプリケーションで十分な既定の msal-node メモリ内トークン キャッシュを使用します。 実稼働アプリケーションは、安全で[](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)信頼性の高いストレージ メディアでトークン キャッシュをシリアル化するための独自のキャッシュ プラグインを提供する必要があります。
