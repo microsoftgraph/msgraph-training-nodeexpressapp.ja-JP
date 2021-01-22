@@ -1,20 +1,23 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="bbf5e-101">この演習では、アプリケーションに Microsoft Graph を組み込みます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-101">In this exercise you will incorporate Microsoft Graph into the application.</span></span> <span data-ttu-id="bbf5e-102">このアプリケーションでは、microsoft graph [クライアント](https://github.com/microsoftgraph/msgraph-sdk-javascript) ライブラリを使用して microsoft graph への呼び出しを行います。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-102">For this application, you will use the [microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) library to make calls to Microsoft Graph.</span></span>
+<span data-ttu-id="af97e-101">この演習では、Microsoft Graph をアプリケーションに組み込む必要があります。</span><span class="sxs-lookup"><span data-stu-id="af97e-101">In this exercise you will incorporate Microsoft Graph into the application.</span></span> <span data-ttu-id="af97e-102">このアプリケーションでは [、microsoft-graph-client ライブラリ](https://github.com/microsoftgraph/msgraph-sdk-javascript) を使用して Microsoft Graph を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="af97e-102">For this application, you will use the [microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) library to make calls to Microsoft Graph.</span></span>
 
-## <a name="get-calendar-events-from-outlook"></a><span data-ttu-id="bbf5e-103">Outlook からカレンダー イベントを取得する</span><span class="sxs-lookup"><span data-stu-id="bbf5e-103">Get calendar events from Outlook</span></span>
+## <a name="get-calendar-events-from-outlook"></a><span data-ttu-id="af97e-103">Outlook からカレンダー イベントを取得する</span><span class="sxs-lookup"><span data-stu-id="af97e-103">Get calendar events from Outlook</span></span>
 
-1. <span data-ttu-id="bbf5e-104">**/graph.js** を開き、に次の関数を追加 `module.exports` します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-104">Open **./graph.js** and add the following function inside `module.exports`.</span></span>
+1. <span data-ttu-id="af97e-104">**./graph.js開き**、次の関数を内部に追加します `module.exports` 。</span><span class="sxs-lookup"><span data-stu-id="af97e-104">Open **./graph.js** and add the following function inside `module.exports`.</span></span>
 
     :::code language="javascript" source="../demo/graph-tutorial/graph.js" id="GetCalendarViewSnippet":::
 
-    <span data-ttu-id="bbf5e-105">このコードの実行内容を考えましょう。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-105">Consider what this code is doing.</span></span>
+    <span data-ttu-id="af97e-105">このコードの実行内容を考えましょう。</span><span class="sxs-lookup"><span data-stu-id="af97e-105">Consider what this code is doing.</span></span>
 
-    - <span data-ttu-id="bbf5e-106">呼び出される URL は `/me/events` です。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-106">The URL that will be called is `/me/events`.</span></span>
-    - <span data-ttu-id="bbf5e-107">`select`このメソッドは、各イベントに対して返されるフィールドを、ビューが実際に使用するものだけに制限します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-107">The `select` method limits the fields returned for each events to just those the view will actually use.</span></span>
-    - <span data-ttu-id="bbf5e-108">メソッドは、 `orderby` 生成された日付と時刻で結果を並べ替えます。最新のアイテムが最初に表示されます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-108">The `orderby` method sorts the results by the date and time they were created, with the most recent item being first.</span></span>
+    - <span data-ttu-id="af97e-106">呼び出される URL は `/me/calendarview` です。</span><span class="sxs-lookup"><span data-stu-id="af97e-106">The URL that will be called is `/me/calendarview`.</span></span>
+    - <span data-ttu-id="af97e-107">このメソッドは要求にヘッダーを追加し、開始時刻と終了時刻をユーザーのタイム ゾーン `header` `Prefer: outlook.timezone` で返します。</span><span class="sxs-lookup"><span data-stu-id="af97e-107">The `header` method adds the `Prefer: outlook.timezone` header to the request, causing the start and end times to be returned in the user's time zone.</span></span>
+    - <span data-ttu-id="af97e-108">この `query` メソッドは、カレンダー `startDateTime` ビュー `endDateTime` のパラメーターとパラメーターを設定します。</span><span class="sxs-lookup"><span data-stu-id="af97e-108">The `query` method sets the `startDateTime` and `endDateTime` parameters for the calendar view.</span></span>
+    - <span data-ttu-id="af97e-109">この `select` メソッドは、各イベントで返されるフィールドを、ビューが実際に使用するフィールドに制限します。</span><span class="sxs-lookup"><span data-stu-id="af97e-109">The `select` method limits the fields returned for each events to just those the view will actually use.</span></span>
+    - <span data-ttu-id="af97e-110">この `orderby` メソッドは、結果を開始時刻で並べ替える。</span><span class="sxs-lookup"><span data-stu-id="af97e-110">The `orderby` method sorts the results by the start time.</span></span>
+    - <span data-ttu-id="af97e-111">この `top` メソッドは、結果を 50 イベントに制限します。</span><span class="sxs-lookup"><span data-stu-id="af97e-111">The `top` method limits the results to 50 events.</span></span>
 
-1. <span data-ttu-id="bbf5e-109">**calendar.js** という名前の **ルート** ディレクトリに新しいファイルを作成し、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-109">Create a new file in the **./routes** directory named **calendar.js** , and add the following code.</span></span>
+1. <span data-ttu-id="af97e-112">calendar.jsという名前の **./routes** ディレクトリに **新しいファイルを作成** し、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="af97e-112">Create a new file in the **./routes** directory named **calendar.js**, and add the following code.</span></span>
 
     ```javascript
     const router = require('express-promise-router')();
@@ -106,40 +109,40 @@
     module.exports = router;
     ```
 
-1. <span data-ttu-id="bbf5e-110">この新しいルートを使用するには、[更新] を app.jsします **。**</span><span class="sxs-lookup"><span data-stu-id="bbf5e-110">Update **./app.js** to use this new route.</span></span> <span data-ttu-id="bbf5e-111">行の **前に** 次の行を追加し `var app = express();` ます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-111">Add the following line **before** the `var app = express();` line.</span></span>
+1. <span data-ttu-id="af97e-113">この **新しいルートをapp.js./app.js** 更新します。</span><span class="sxs-lookup"><span data-stu-id="af97e-113">Update **./app.js** to use this new route.</span></span> <span data-ttu-id="af97e-114">行の前に次 **の行を** `var app = express();` 追加します。</span><span class="sxs-lookup"><span data-stu-id="af97e-114">Add the following line **before** the `var app = express();` line.</span></span>
 
     ```javascript
     var calendarRouter = require('./routes/calendar');
     ```
 
-1. <span data-ttu-id="bbf5e-112">行の **後** に次の行を追加し `app.use('/auth', authRouter);` ます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-112">Add the following line **after** the `app.use('/auth', authRouter);` line.</span></span>
+1. <span data-ttu-id="af97e-115">行の後に次 **の行を** `app.use('/auth', authRouter);` 追加します。</span><span class="sxs-lookup"><span data-stu-id="af97e-115">Add the following line **after** the `app.use('/auth', authRouter);` line.</span></span>
 
     ```javascript
     app.use('/calendar', calendarRouter);
     ```
 
-1. <span data-ttu-id="bbf5e-113">サーバーを再起動します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-113">Restart the server.</span></span> <span data-ttu-id="bbf5e-114">サインインして、ナビゲーションバーの [ **予定表** ] リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-114">Sign in and click the **Calendar** link in the nav bar.</span></span> <span data-ttu-id="bbf5e-115">すべてが正常に機能していれば、ユーザーのカレンダーにイベントの JSON ダンプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-115">If everything works, you should see a JSON dump of events on the user's calendar.</span></span>
+1. <span data-ttu-id="af97e-116">サーバーを再起動します。</span><span class="sxs-lookup"><span data-stu-id="af97e-116">Restart the server.</span></span> <span data-ttu-id="af97e-117">サインインし、ナビゲーション バー **の [予定表** ] リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="af97e-117">Sign in and click the **Calendar** link in the nav bar.</span></span> <span data-ttu-id="af97e-118">すべてが正常に機能していれば、ユーザーのカレンダーにイベントの JSON ダンプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="af97e-118">If everything works, you should see a JSON dump of events on the user's calendar.</span></span>
 
-## <a name="display-the-results"></a><span data-ttu-id="bbf5e-116">結果の表示</span><span class="sxs-lookup"><span data-stu-id="bbf5e-116">Display the results</span></span>
+## <a name="display-the-results"></a><span data-ttu-id="af97e-119">結果の表示</span><span class="sxs-lookup"><span data-stu-id="af97e-119">Display the results</span></span>
 
-<span data-ttu-id="bbf5e-117">結果を表示するとき、よりユーザー フレンドリなビューを追加できます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-117">Now you can add a view to display the results in a more user-friendly manner.</span></span>
+<span data-ttu-id="af97e-120">結果を表示するとき、よりユーザー フレンドリなビューを追加できます。</span><span class="sxs-lookup"><span data-stu-id="af97e-120">Now you can add a view to display the results in a more user-friendly manner.</span></span>
 
-1. <span data-ttu-id="bbf5e-118">行の後に、次のコードを追加 **します。./app.js** `app.set('view engine', 'hbs');`</span><span class="sxs-lookup"><span data-stu-id="bbf5e-118">Add the following code in **./app.js after** the `app.set('view engine', 'hbs');` line.</span></span>
+1. <span data-ttu-id="af97e-121">./app.js 行の後に **次のコードを** 追加 `app.set('view engine', 'hbs');` します。</span><span class="sxs-lookup"><span data-stu-id="af97e-121">Add the following code in **./app.js after** the `app.set('view engine', 'hbs');` line.</span></span>
 
     :::code language="javascript" source="../demo/graph-tutorial/app.js" id="FormatDateSnippet":::
 
-    <span data-ttu-id="bbf5e-119">これにより、Microsoft Graph によって返される ISO 8601 日付をよりわかりやすいものに書式設定する [Handlebars ヘルパー](http://handlebarsjs.com/#helpers) が実装されています。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-119">This implements a [Handlebars helper](http://handlebarsjs.com/#helpers) to format the ISO 8601 date returned by Microsoft Graph into something more human-friendly.</span></span>
+    <span data-ttu-id="af97e-122">これにより、Microsoft Graph から返される ISO 8601 の日付を、より人間に優しい形式に書式設定するための [Handlebars](http://handlebarsjs.com/#helpers) ヘルパーが実装されます。</span><span class="sxs-lookup"><span data-stu-id="af97e-122">This implements a [Handlebars helper](http://handlebarsjs.com/#helpers) to format the ISO 8601 date returned by Microsoft Graph into something more human-friendly.</span></span>
 
-1. <span data-ttu-id="bbf5e-120">次のコードを追加して、 **calendar** という名前の **./views** ディレクトリに新しいファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-120">Create a new file in the **./views** directory named **calendar.hbs** and add the following code.</span></span>
+1. <span data-ttu-id="af97e-123">**calendar.hs** という **名前の ./views** ディレクトリに新しいファイルを作成し、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="af97e-123">Create a new file in the **./views** directory named **calendar.hbs** and add the following code.</span></span>
 
     :::code language="html" source="../demo/graph-tutorial/views/calendar.hbs" id="LayoutSnippet":::
 
-    <span data-ttu-id="bbf5e-121">これにより、イベントのコレクションがループされ、各イベントにテーブル行が追加されます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-121">That will loop through a collection of events and add a table row for each one.</span></span>
+    <span data-ttu-id="af97e-124">これにより、イベントのコレクションがループされ、各イベントにテーブル行が追加されます。</span><span class="sxs-lookup"><span data-stu-id="af97e-124">That will loop through a collection of events and add a table row for each one.</span></span>
 
-1. <span data-ttu-id="bbf5e-122">ここで、このビューを使用するように、 **/routes/calendar.js** のルートを更新します。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-122">Now update the route in **./routes/calendar.js** to use this view.</span></span> <span data-ttu-id="bbf5e-123">既存のルートを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-123">Replace the existing route with the following code.</span></span>
+1. <span data-ttu-id="af97e-125">**./routes/calendar.js** を更新して、このビューを使用します。</span><span class="sxs-lookup"><span data-stu-id="af97e-125">Now update the route in **./routes/calendar.js** to use this view.</span></span> <span data-ttu-id="af97e-126">既存のルートを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="af97e-126">Replace the existing route with the following code.</span></span>
 
     :::code language="javascript" source="../demo/graph-tutorial/routes/calendar.js" id="GetRouteSnippet" highlight="33-36,49,51-54,61":::
 
-1. <span data-ttu-id="bbf5e-124">変更を保存し、サーバーを再起動して、アプリにサインインします。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-124">Save your changes, restart the server, and sign in to the app.</span></span> <span data-ttu-id="bbf5e-125">[ **予定表** ] リンクをクリックすると、アプリがイベントの表を表示するようになります。</span><span class="sxs-lookup"><span data-stu-id="bbf5e-125">Click on the **Calendar** link and the app should now render a table of events.</span></span>
+1. <span data-ttu-id="af97e-127">変更内容を保存し、サーバーを再起動して、アプリにサインインします。</span><span class="sxs-lookup"><span data-stu-id="af97e-127">Save your changes, restart the server, and sign in to the app.</span></span> <span data-ttu-id="af97e-128">[カレンダー] **リンクを** クリックすると、アプリはイベントのテーブルをレンダリングする必要があります。</span><span class="sxs-lookup"><span data-stu-id="af97e-128">Click on the **Calendar** link and the app should now render a table of events.</span></span>
 
     ![イベント表のスクリーンショット](./images/add-msgraph-01.png)
