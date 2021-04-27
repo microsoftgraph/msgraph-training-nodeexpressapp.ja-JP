@@ -2,17 +2,17 @@
 
 ## <a name="prerequisites"></a>前提条件
 
-このフォルダーで完了したプロジェクトを実行するには、次のものが必要です。
+このフォルダーで完了したプロジェクトを実行するには、次の情報が必要です。
 
-- [Node.js](https://nodejs.org) 開発用コンピューターにインストールされます。 Node.js がない場合は、「ダウンロードオプション」の「前へ」のリンクを参照してください。 ( **注:** このチュートリアルは、ノードバージョン12.6.1 を使用して作成されています。 このガイドの手順は、他のバージョンでは動作しますが、テストされていません。)
-- Outlook.com 上のメールボックスを持つ個人の Microsoft アカウント、または Microsoft 職場または学校のアカウントのいずれか。
+- [Node.js](https://nodejs.org) コンピューターにインストールされている必要があります。 インストールされていない場合はNode.js前のリンクにアクセスしてダウンロード オプションを確認してください。 (**注:** このチュートリアルは、ノード バージョン 14.15.0 で記述されています。 このガイドの手順は、他のバージョンで動作する場合がありますが、テストされていない場合があります)。
+- Outlook.com 上のメールボックスを持つ個人の Microsoft アカウント、または Microsoft の仕事用または学校用のアカウント。
 
-Microsoft アカウントを持っていない場合は、無料のアカウントを取得するためのオプションがいくつかあります。
+Microsoft アカウントをお持ちでない場合は、無料アカウントを取得するためのオプションが 2 つご利用できます。
 
-- [新しい個人用 Microsoft アカウントにサインアップ](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)することができます。
-- [Office 365 開発者プログラムにサインアップ](https://developer.microsoft.com/office/dev-program)して、無料の office 365 サブスクリプションを取得することができます。
+- 新しい [個人用 Microsoft アカウントにサインアップできます](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)。
+- 開発者プログラム[にサインアップしてOffice 365無料](https://developer.microsoft.com/office/dev-program)のサブスクリプションをOffice 365できます。
 
-## <a name="register-a-web-application-with-the-azure-active-directory-admin-center"></a>Web アプリケーションを Azure Active Directory 管理センターに登録する
+## <a name="register-a-web-application-with-the-azure-active-directory-admin-center"></a>Web アプリケーションを管理センターにAzure Active Directoryする
 
 1. ブラウザーを開き、[Azure Active Directory 管理センター](https://aad.portal.azure.com)に移動します。 **個人用アカウント** (別名: Microsoft アカウント)、または **職場/学校アカウント** を使用してログインします。
 
@@ -28,11 +28,11 @@ Microsoft アカウントを持っていない場合は、無料のアカウン�
 
     ![[アプリケーションを登録する] ページのスクリーンショット](/tutorial/images/aad-register-an-app.png)
 
-1. **[登録]** を選択します。 [ **Node.js Graph のチュートリアル** ] ページで、 **アプリケーション (クライアント) ID** の値をコピーして保存します。次の手順で必要になります。
+1. **[登録]** を選択します。 [チュートリアル **Node.js Graph]** ページで、アプリケーション **(クライアント) ID** の値をコピーして保存します。次の手順で必要になります。
 
     ![新しいアプリ登録のアプリケーション ID のスクリーンショット](/tutorial/images/aad-application-id.png)
 
-1. **[管理]** で **[証明書とシークレット]** を選択します。 **[新しいクライアント シークレット]** ボタンを選択します。 **[説明]** に値を入力して、 **[有効期限]** のオプションのいずれかを選び、 **[追加]** を選択します。
+1. **[管理]** で **[証明書とシークレット]** を選択します。 **[新しいクライアント シークレット]** ボタンを選択します。 **[説明]** に値を入力して、**[有効期限]** のオプションのいずれかを選び、**[追加]** を選択します。
 
     ![[クライアントシークレットの追加] ダイアログのスクリーンショット](/tutorial/images/aad-new-client-secret.png)
 
@@ -45,11 +45,11 @@ Microsoft アカウントを持っていない場合は、無料のアカウン�
 
 ## <a name="configure-the-sample"></a>サンプルを構成する
 
-1. ファイルの名前 `example.env` をに変更 `.env` します。
-1. ファイルを編集し、 `.env` 次のように変更します。
-    1. を `YOUR_CLIENT_SECRET_HERE` アプリ登録ポータルで取得した **アプリケーション Id** に置き換えます。
-    1. を `YOUR_APP_PASSWORD_HERE` アプリ登録ポータルから取得したパスワードに置き換えます。
-1. コマンドラインインターフェイス (CLI) で、このディレクトリに移動し、次のコマンドを実行して要件をインストールします。
+1. ファイルの名前 `example.env` をに変更します `.env` 。
+1. ファイルを `.env` 編集し、次の変更を行います。
+    1. アプリ `YOUR_CLIENT_SECRET_HERE` 登録ポータル **から取得した** アプリケーション ID に置き換える。
+    1. アプリ `YOUR_APP_PASSWORD_HERE` 登録ポータルから受け取ったパスワードに置き換える。
+1. コマンド ライン インターフェイス (CLI) で、このディレクトリに移動し、次のコマンドを実行して要件をインストールします。
 
     ```Shell
     npm install

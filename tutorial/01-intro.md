@@ -1,28 +1,28 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-このチュートリアルでは、Microsoft Graph API を使用してユーザーの予定表情報を取得する Node.js Express web アプリを構築する方法について説明します。
+このチュートリアルでは、Microsoft Node.js API を使用してユーザーの予定表情報を取得する Graph Express Web アプリを構築する方法について説明します。
 
 > [!TIP]
-> 完成したチュートリアルをダウンロードするだけで済む場合は、2つの方法でダウンロードできます。
+> 完成したチュートリアルをダウンロードするだけの場合は、2 つの方法でダウンロードできます。
 >
-> - Node.js の [ クイックスタート](https://developer.microsoft.com/graph/quick-start?platform=option-node) をダウンロードして、時間単位で作業コードを取得します。
-> - [GitHub リポジトリ](https://github.com/microsoftgraph/msgraph-training-nodeexpressapp)をダウンロードするか、クローンを作成します。
+> - クイック スタート [Node.jsダウンロードして](https://developer.microsoft.com/graph/quick-start?platform=option-node) 、作業コードを数分で取得します。
+> - リポジトリをダウンロードまたは複製[GitHubします](https://github.com/microsoftgraph/msgraph-training-nodeexpressapp)。
 
 ## <a name="prerequisites"></a>前提条件
 
-このデモを開始する前に、開発用コンピューターに [Node.js](https://nodejs.org) をインストールしておく必要があります。 Node.js がない場合は、「ダウンロードオプション」の「前へ」のリンクを参照してください。
+このデモを開始する前に、開発 [Node.js](https://nodejs.org) インストールする必要があります。 インストールされていない場合はNode.js前のリンクにアクセスしてダウンロード オプションを確認してください。
 
 > [!NOTE]
-> Windows ユーザーは、C/c + + でコンパイルする必要がある NPM モジュールをサポートするために、Python と Visual Studio のビルドツールをインストールする必要がある場合があります。 Windows の Node.js インストーラーでは、これらのツールを自動的にインストールするオプションが提供されます。 または、に記載されている手順に従うこともでき [https://github.com/nodejs/node-gyp#on-windows](https://github.com/nodejs/node-gyp#on-windows) ます。
+> Windows C/C++ からコンパイルする必要Visual Studio Build Tools NPM モジュールをサポートするために、Python と windows をインストールする必要がある場合があります。 このNode.jsインストーラー Windowsこれらのツールを自動的にインストールするオプションを提供します。 または、以下の手順に従います [https://github.com/nodejs/node-gyp#on-windows](https://github.com/nodejs/node-gyp#on-windows) 。
 
-また、Outlook.com 上のメールボックスを持つ個人の Microsoft アカウント、または Microsoft 職場または学校のアカウントを所有している必要があります。 Microsoft アカウントを持っていない場合は、無料のアカウントを取得するためのオプションがいくつかあります。
+また、Outlook.com 上のメールボックスを持つ個人用 Microsoft アカウント、または Microsoft の仕事用または学校用のアカウントを持っている必要があります。 Microsoft アカウントをお持ちでない場合は、無料アカウントを取得するためのオプションが 2 つご利用できます。
 
-- [新しい個人用 Microsoft アカウントにサインアップ](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)することができます。
-- [Office 365 開発者プログラムにサインアップ](https://developer.microsoft.com/office/dev-program)して、無料の office 365 サブスクリプションを取得することができます。
+- 新しい [個人用 Microsoft アカウントにサインアップできます](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)。
+- 開発者プログラム[にサインアップしてOffice 365無料](https://developer.microsoft.com/office/dev-program)のサブスクリプションをOffice 365できます。
 
 > [!NOTE]
-> このチュートリアルは、ノードバージョン12.18.4 を使用して作成されました。 このガイドの手順は、他のバージョンでは動作しますが、テストされていません。
+> このチュートリアルは、ノード バージョン 14.15.0 で記述されています。 このガイドの手順は、他のバージョンでも動作しますが、テストされていない場合があります。
 
 ## <a name="feedback"></a>フィードバック
 
-このチュートリアルに関するフィードバックは、 [GitHub リポジトリ](https://github.com/microsoftgraph/msgraph-training-nodeexpressapp)に記入してください。
+このチュートリアルに関するフィードバックは、GitHub[してください](https://github.com/microsoftgraph/msgraph-training-nodeexpressapp)。
